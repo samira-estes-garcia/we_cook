@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
-    skip_before_action :verified_user, only: [:new, :create]
 
     # Log user in
     def new
         @user = User.new
-        #render :sign_in
+        render 'signin'
     end
 
     def create
@@ -13,7 +12,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id 
             redirect_to user_path(@user)
         else
-            redirect_to "/login"
+            redirect_to "/signin"
         end
     end
 
