@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :recipes
 resources :users
 root 'sessions#index'
 get '/signin', to: 'sessions#new', as: 'signin'
