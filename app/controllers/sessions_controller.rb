@@ -16,9 +16,6 @@ class SessionsController < ApplicationController
         end
     end
 
-    def index
-    end
-
     #logout method
     def destroy
         session.clear
