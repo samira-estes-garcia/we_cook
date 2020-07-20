@@ -1,17 +1,5 @@
 <h1>Add A New Recipe</h1>
 
-<%= form_for @recipe do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %> <br>
+render 'form'
 
-    <%= f.label :description %>
-    <%= f.text_field :description %> <br>
-
-    <%= f.label :ingredients %>
-    <%= f.text_field :ingredients %> <br>
-
-    <%= f.label :instructions %>
-    <%= f.text_field :instructions %> <br>
-
-    <%= f.submit "Add Recipe" %>
-<% end %>
+<%= link_to 'Back', users_path(current_user) %>
