@@ -1,6 +1,6 @@
-<h1>Add A new Recipe</h1>
+<h1>Add A New Recipe</h1>
 
-<%= form_for([current_user, @recipe]) do |f| %>
+<%= form_for @recipe do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %> <br>
 

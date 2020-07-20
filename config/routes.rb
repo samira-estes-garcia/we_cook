@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-resources :users, only: [:index, :show, :edit] do 
-  resources :recipes
-end
+resources :users
+resources :recipes, except: [:index]
+# resources :users, only: [:index, :show, :edit] do 
+#   resources :recipes
+# end
 root 'recipes#index'
 get '/signin', to: 'sessions#new', as: 'signin'
 post '/sessions', to: 'sessions#create', as: 'sessions'

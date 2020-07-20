@@ -1,6 +1,6 @@
 <h1>Index</h1>
 
 <h2> All Recipes <h2>
-<%= @recipe.each do |recipe| %>
-    <%= recipe.title %>
+<% @recipe.each do |recipe| %>
+    <%= link_to recipe.title, recipe_path(recipe.id)  %><br>
 <% end %>

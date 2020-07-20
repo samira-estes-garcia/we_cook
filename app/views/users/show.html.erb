@@ -2,10 +2,10 @@
 
 <%= link_to 'Edit Profile', edit_user_path %>
 
-<%= link_to 'Add a Recipe', new_user_recipe_path(current_user.id, :recipes) %>
+<%= link_to 'Add a Recipe', new_recipe_path(@recipe) %>
 
 
 <h2> All Recipes <h2>
 <% @user.recipes.each do |recipe| %>
-    <%= link_to recipe.title, user_recipe_path(current_user.id, recipe.id) %><br>
+    <%= link_to recipe.title, recipe_path(recipe.id) %><br>
 <% end %>
