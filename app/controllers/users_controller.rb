@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     # Show page for once the user is signed in
     def show
         @user = User.find(params[:id])
+        @recipe = Recipe.all
     end
 
     def edit

@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
-    belongs_to :users
+    belongs_to :user
 
     #accepts_nested_attributes_for :ingredients, 
                                     # reject_if: proc { |attributes| attributes['name'].blank? }, 
