@@ -24,7 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google'
-
+gem "paperclip", "~> 6.0.0"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
