@@ -1,6 +1,7 @@
 <h1>Show</h1>
 
 <h1><%= @recipe.title %></h1>
+<img src=<%= @recipe.image.url(:medium) %> /><br>
 
 <%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %>
 <%= link_to 'Delete Recipe', recipe_path(@recipe), method: 'delete' %>
