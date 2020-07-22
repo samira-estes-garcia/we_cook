@@ -5,7 +5,8 @@
 <%= link_to 'Add a Recipe', new_recipe_path(@recipe) %>
 
 
-<h2> My Recipes <h2>
+<%= link_to 'View Recipes Created by this user',  %><br>
+
 <% @user.recipes.each do |recipe| %>
     <%= link_to recipe.title, recipe_path(recipe.id) %><br>
 <% end %>
