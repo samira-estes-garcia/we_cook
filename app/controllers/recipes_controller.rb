@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
         @recipe = current_user.recipes.build
         @recipe.ingredients.build
         @recipe.instructions.build
+        @recipe.categories.build
     end
 
     def show
@@ -51,7 +52,7 @@ class RecipesController < ApplicationController
     private
 
     def recipe_params
-        params.require(:recipe).permit(:title, :description, :user_id, :image, ingredients_attributes: [:id, :name, :_destroy], instructions_attributes: [:id, :step, :_destroy])
+        params.require(:recipe).permit(:title, :description, :user_id, :image, ingredients_attributes: [:id, :name, :_destroy], instructions_attributes: [:id, :step, :_destroy],  categories_attributes: [:id, :type, :_destroy])
     end
 
 end

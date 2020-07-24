@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  resources :categories
+resources :categories
 resources :users
 
 resources :users, only: [:show] do
+  resources :recipes, only: [:show, :index]
+end
+
+resources :catories, only: [:show] do 
   resources :recipes, only: [:show, :index]
 end
 
