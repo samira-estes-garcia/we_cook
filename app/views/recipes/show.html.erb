@@ -4,5 +4,15 @@
 <h2>Posted by: <%= link_to "#{@recipe.user.name}", user_recipes_path(@recipe.user) %></h2>
 <img src=<%= @recipe.image.url(:medium) %> /><br>
 
+<h3>Ingredients:</h3>
+<% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
+<% end %>
+
+<h3>Instructions:</h3>
+<% @recipe.instructions.each do |instruction| %>
+    <li><%= instruction.step %></li>
+<% end %>
+
 <%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %>
 <%= link_to 'Delete Recipe', recipe_path(@recipe), method: 'delete' %>

@@ -25,6 +25,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google'
 gem "paperclip", "~> 6.0.0"
+gem "cocoon"
+gem 'simple_form'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

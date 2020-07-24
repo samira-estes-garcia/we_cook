@@ -1,0 +1,45 @@
+<%= form_for @recipe do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %> <br>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %> <br>
+
+    <div>Ingredients</div>
+    <%= f.fields_for :ingredients, @recipe.ingredients do |ingredient| %>
+        <%= ingredient.label :name %>
+        <%= ingredient.text_field :name %>
+        <%= link_to_add_association 'add ingredient', f, :ingredients %>
+    <% end %>
+
+
+
+
+    <%= f.label :instructions %>
+    <%= f.text_field :instructions %> <br>
+
+    <%= f.label :image %>
+    <%= f.file_field :image %> <br>
+
+    <%= f.submit "Add Recipe" %>
+<% end %>
+
+, ingredients_attributes: [:id, :name, :_destroy], instructions_attributes: [:id, :step, :_destroy]
+
+<%= f.simple_fields_for :ingredients do |ingredient| %> 
+        <%= render 'ingredient_fields', f: ingredient %>
+        <%= link_to_add_association 'add ingredient', f, :ingredients %>
+    <% end %>
+
+     has_many :ingredients
+    has_many :instructions
+
+    accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
+    accepts_nested_attributes_for :instructions, reject_if: :all_blank, allow_destroy: true
+
+
+environment.js 
+const { environment } = require('@rails/webpacker')
+
+module.exports = environment
+
