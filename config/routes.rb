@@ -6,9 +6,9 @@ resources :users, only: [:show] do
   resources :recipes, only: [:show, :index]
 end
 
-resources :catories, only: [:show] do 
-  resources :recipes, only: [:show, :index]
-end
+# resources :catories, only: [:show] do 
+#   resources :recipes, only: [:show, :index]
+# end
 
 resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 

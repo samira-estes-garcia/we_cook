@@ -14,5 +14,8 @@
     <li><%= instruction.step %></li>
 <% end %>
 
+<p>Category</p>
+<%= link_to "#{@recipe.category.name}", categories_path(@category) %>
+
 <%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %>
 <%= link_to 'Delete Recipe', recipe_path(@recipe), method: 'delete' %>
