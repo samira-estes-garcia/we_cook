@@ -44,3 +44,7 @@ const { environment } = require('@rails/webpacker')
 module.exports = environment
 
 https://stackoverflow.com/questions/43558477/render-different-show-pages-with-category-in-ruby-on-rails
+
+
+
+<%= link_to ingredient.recipe.title, @recipe_path(recipe.id) %> <br>

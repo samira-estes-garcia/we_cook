@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
         if params[:user_id]
             @recipes = User.find(params[:user_id]).recipes
         else
-            @recipes = Recipe.all.order('created_at DESC')
+            @recipes = Recipe.all
         end
     end
 

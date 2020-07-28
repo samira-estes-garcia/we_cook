@@ -4,6 +4,9 @@
 <h2>Posted by: <%= link_to "#{@recipe.user.name}", user_recipes_path(@recipe.user) %></h2>
 <img src=<%= @recipe.image.url(:medium) %> /><br>
 
+<h3>Description</h3>
+<%= @recipe.description %>
+
 <h3>Ingredients:</h3>
 <% @recipe.ingredients.each do |ingredient| %>
     <li><%= ingredient.name %></li>
@@ -16,8 +19,6 @@
 
 <p>Category</p>
 <%= link_to @recipe.category.name, @recipe.category %>
-
-
 
 
 <%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %>
