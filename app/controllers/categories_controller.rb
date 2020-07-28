@@ -9,5 +9,7 @@ class CategoriesController < ApplicationController
     end
 
     def show
+    @category = Category.find(params[:id])
+    @recipes = @category.recipes.order("created_at DESC")
     end
 end

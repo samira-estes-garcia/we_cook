@@ -24,10 +24,10 @@
     <%= link_to_add_association 'add instruction', f, :instructions%>
     </div>
     </div>
-
+    
     <div class="field">
     <p>Category</p>
-    <%= f.collection_select :category_id, Category.all, :id, :name, {:prompt => true} %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true} %>
     </div>
 
     <%= f.button :submit, class: "btn btn-success" %>

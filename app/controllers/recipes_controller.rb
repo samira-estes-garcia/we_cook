@@ -6,13 +6,13 @@ class RecipesController < ApplicationController
         else
             @recipes = Recipe.all.order('created_at DESC')
         end
-        # @recipe = Recipe.all.order('created_at DESC')
     end
 
     def new
-        @recipe = Recipe.new
-        @recipe.ingredients.build
-        @recipe.instructions.build
+            @recipe = Recipe.new
+            @recipe.ingredients.build
+            @recipe.instructions.build
+            @recipe.category_id = (params[:category_id]) if params[:category_id]
     end
 
     def show
