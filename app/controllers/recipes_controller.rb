@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
         @recipe = Recipe.new(recipe_params)
         @recipe.user_id = current_user.id
         if @recipe.save 
+            flash[:message] = "Sucessfully created Recipe!"
             redirect_to @recipe
         else
             render 'new'
@@ -45,6 +46,7 @@ class RecipesController < ApplicationController
     def destroy
         @recipe = Recipe.find(params[:id])
         @recipe.destroy
+        flash[:message] = "Your recipe was deleted"
         redirect_to user_path(current_user)
     end
 

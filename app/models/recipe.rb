@@ -2,7 +2,7 @@ class Recipe < ApplicationRecord
     belongs_to :user
     has_many :ingredients, :dependent => :destroy
     has_many :instructions, :dependent => :destroy
-    belongs_to :category, :dependent => :destroy
+    belongs_to :category
 
     accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
     accepts_nested_attributes_for :instructions, reject_if: :all_blank, allow_destroy: true

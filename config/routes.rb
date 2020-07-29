@@ -13,7 +13,7 @@ end
 resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
 root 'recipes#index'
-get '/recipes/less-than-five', to: 'recipes#less_than_five'
+get '/auth/facebook/callback' => 'sessions#create'
 get '/signin', to: 'sessions#new', as: 'signin'
 post '/sessions', to: 'sessions#create', as: 'sessions'
 delete '/sessions/', to: 'sessions#destroy'
