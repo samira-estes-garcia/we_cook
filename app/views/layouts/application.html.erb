@@ -11,17 +11,25 @@
   </head>
 
   <body>
-  <a href="<%= root_url %>"/>Home</a>
-  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+  <nav class="navbar sticky-top navbar-light" style="background-color: #dc3545;">
+    <a href="<% root_url %>" class="text-white">
+      <img src="" alt="We Cook Logo" />
+    </a>
         <% if !current_user %>
-          <a href="<%= new_user_path %>"/>Sign Up</a>
-          <%= link_to "Sign In", signin_path%>
+          <a href="<%= new_user_session_path %>" class="text-white">Sign In</a>
+          <a href="<%= new_user_registration_path %>" class="text-white">Sign Up</a>
         <% end %>
         <% if current_user %>
-          <%= link_to "#{current_user.name}'s profile", user_path(current_user)%>
-          <%= link_to('Log in with Facebook!', '/auth/facebook') %>
-          <%= link_to "Log Out", sessions_path, method:'delete' %>
+          <div class="navbar-brand"><%= link_to current_user.name, user_path(current_user)%></div>
+          <div class="navbar-brand"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></div>
+        <% end %>
+  </nav>
+        <% if error = notice %>
+          <p class="notice alert alert-success" role="alert"><%= notice %></p>
+        <% elsif error = alert %>
+          <p class="alert alert-danger" role="alert"><%= alert %></p>
+        <% else %>
+          <p class=""></p>
         <% end %>
     <%= yield %>
   </body>

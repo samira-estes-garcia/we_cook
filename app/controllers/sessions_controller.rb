@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     # Log user in
     def new
         @user = User.new
-        render 'signin'
+        render '/account/sign_in'
     end
 
     def create
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id 
             redirect_to user_path(@user)
         else
-            redirect_to "/signin"
+            redirect_to "/account/sign_in"
         end
     end
 
