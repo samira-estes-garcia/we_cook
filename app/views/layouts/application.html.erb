@@ -8,21 +8,25 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag :jquery %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path("/images/wecook-logo.svg")%>
   </head>
 
   <body>
-  <nav class="navbar sticky-top navbar-light" style="background-color: #dc3545;">
-    <a href="<% root_url %>" class="text-white">
-      <img src="" alt="We Cook Logo" />
+  <nav class="navbar sticky-top navbar-light" style="background-color: crimson;">
+    <a href="<%= root_url %>" class="text-white navbar-brand">
+    <%= image_tag("/images/wecook-logo.svg", alt: "We Cook Logo", style: "width: 10%") %>
+    WeCook!
     </a>
+    <div class="text-align-right">
         <% if !current_user %>
           <a href="<%= new_user_session_path %>" class="text-white">Sign In</a>
-          <a href="<%= new_user_registration_path %>" class="text-white">Sign Up</a>
+          <a href="<%= new_user_registration_path %>" class="btn btn-outline-light" style="margin-left: 1em;">Sign Up</a>
         <% end %>
         <% if current_user %>
-          <div class="navbar-brand"><%= link_to current_user.name, user_path(current_user)%></div>
-          <div class="navbar-brand"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></div>
+          <%= link_to "#{current_user.name}'s Profile", user_path(current_user), class:"text-white"%>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"text-white", style: "margin-left: 1em;" %>
         <% end %>
+    </div>
   </nav>
         <% if error = notice %>
           <p class="notice alert alert-success" role="alert"><%= notice %></p>
