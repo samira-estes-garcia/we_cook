@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    around_action :catch_not_found
 
     # def new
     #    @user = User.new 
@@ -24,15 +25,22 @@ class UsersController < ApplicationController
     #     @user = User.find(params[:id])
     # end
 
-    # def update
-    #     @user = User.find(params[:id])
-    #     @user.update(user_params)
-    #     redirect_to user_path(@user)
-    # end
+    def update
+        @user = User.find(params[:id])
+        @user.update(user_params)
+        redirect_to user_path(@user)
+    end
 
-    # private 
+    private 
 
-    # def user_params
-    #     params.require(:user).permit(:name, :email, :password)
-    # end
+    def user_params
+        params.require(:user).permit(:name, :email, :password)
+    end
+
+    def catch_not_found
+        yield
+    rescue ActiveRecord::RecordNotFound
+        redirect_to root_url 
+        flash[:error] = "Record not found." 
+    end
 end

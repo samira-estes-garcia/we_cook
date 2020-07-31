@@ -3,6 +3,6 @@
 <h2> All Recipes </h2>
 <% @recipes.ordered.each do |recipe| %>
     <h3><%= link_to recipe.title, recipe_path(recipe.id)  %></h3><br>
-    <h2>Posted by: <%= link_to "#{recipe.user.name}", user_recipes_path(recipe.user) %></h2>
+    <h2>Posted by: <%= link_to "#{recipe.user.name}", user_path(recipe.user_id) %></h2>
     <%= link_to image_tag(recipe.image.url(:medium)), recipe_path(recipe.id) %><br>
 <% end %>

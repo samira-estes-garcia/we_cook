@@ -28,7 +28,6 @@ gem "cocoon"
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0'
-gem 'devise-bootstrap-views'
 gem 'dotenv-rails'
 gem 'devise'
 # Use Active Storage variant

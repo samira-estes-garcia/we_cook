@@ -1,8 +1,10 @@
 class RecipesController < ApplicationController
+    around_action :catch_not_found
 
     def index
         if params[:user_id]
-            @recipes = User.find(params[:user_id]).recipes
+            @user = User.find(params[:user_id])
+            @recipes = @user.recipes
         else
             @recipes = Recipe.all
         end
@@ -23,7 +25,7 @@ class RecipesController < ApplicationController
         @recipe = Recipe.new(recipe_params)
         @recipe.user_id = current_user.id
         if @recipe.save 
-            flash[:message] = "Sucessfully created Recipe!"
+            flash[:message] = "Sucessfully Created Recipe!"
             redirect_to @recipe
         else
             render 'new'
@@ -54,6 +56,13 @@ class RecipesController < ApplicationController
 
     def recipe_params
         params.require(:recipe).permit(:title, :description, :user_id, :image, :category_id, ingredients_attributes: [:id, :name, :_destroy], instructions_attributes: [:id, :step, :_destroy])
+    end
+
+    def catch_not_found
+        yield
+    rescue ActiveRecord::RecordNotFound
+        redirect_to root_url 
+        flash[:error] = "Record not found." 
     end
 
 end

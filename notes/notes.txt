@@ -48,3 +48,6 @@ https://stackoverflow.com/questions/43558477/render-different-show-pages-with-ca
 
 
 <%= link_to ingredient.recipe.title, @recipe_path(recipe.id) %> <br>
+
+devise/new 
+<%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>

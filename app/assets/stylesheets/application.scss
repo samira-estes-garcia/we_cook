@@ -13,3 +13,53 @@
 
  */
 @import "bootstrap/scss/bootstrap";
+
+.form-group {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 5%;
+}
+
+.label {
+  font-weight: bold;
+  padding: 1%;
+}
+
+.input {
+  margin-bottom: 2%;
+}
+
+.error,
+.error_notification {
+  color: red;
+  display: block;
+}
+
+.is-center {
+  text-align: center;
+}
+
+.is-flex {
+  display: flex;
+}
+
+.inline {
+  display: inline;
+}
+
+.padding-2 {
+  padding: 2%;
+}
+
+.hover:hover {
+  filter: invert(42%) sepia(78%) saturate(6424%) hue-rotate(202deg)
+    brightness(107%) contrast(102%);
+}
+
+.margin-bottom-2 {
+  margin-bottom: 2%;
+}
+
+.margin-top-2-up {
+  margin-top: -2%;
+}
