@@ -23,7 +23,7 @@ Password: admin
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/samira-estes-garcia/we-cook. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/samira-estes-garcia/we-cook/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/samira-estes-garcia/we_cook. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/samira-estes-garcia/we_cook/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
