@@ -24,6 +24,7 @@
         <% end %>
         <% if current_user %>
           <%= link_to "#{current_user.name}'s Profile", user_path(current_user), class:"text-white"%>
+          <%= link_to "New Recipe", new_recipe_path(@recipe), class:"text-white", style: "margin-left: 1em;" %>
           <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"text-white", style: "margin-left: 1em;" %>
         <% end %>
     </div>

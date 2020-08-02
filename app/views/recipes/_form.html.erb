@@ -1,34 +1,43 @@
+<div class="form-group padding-bottom-5">
 <%= simple_form_for @recipe do |f| %>
     <div class="panel-body">
-    <%= f.input :title, input_html: { class: 'form-control' } %>
-    <%= f.input :description, input_html: { class: 'form-control' } %>
-    <%= f.input :image, input_html: { class: 'form-control' } %>
+    <%= f.input :title, label_html: {class: "label"}, input_html: { class: 'form-control' } %>
+    <%= f.input :description, label_html: {class: "label"}, input_html: { class: 'form-control' } %>
+    <%= f.input :image, label_html: {class: "label"}, input_html: { class: 'form-control' } %>
     </div>
 
-    <p>Ingredients</p>
+    <div class="">
+
+    <p class="label">Ingredients</p>
     <div id="ingredients">
     <%= f.simple_fields_for :ingredients do |ingredient| %>
         <%= render 'ingredient_fields', f: ingredient %>
     <% end %>
     <div class="links">
-    <%= link_to_add_association 'add ingredient', f, :ingredients%>
+    <%= link_to_add_association 'Add Ingredient', f, :ingredients%>
     </div>
     </div>
 
-    <p>Instructions</p>
+    <p class="label">Instructions</p>
     <div class="instructions">
     <%= f.simple_fields_for :instructions do |instruction| %>
         <%= render 'instruction_fields', f: instruction %>
     <% end %>
     <div class="links">
-    <%= link_to_add_association 'add instruction', f, :instructions%>
+    <%= link_to_add_association 'Add Instruction', f, :instructions%>
     </div>
     </div>
     
-    <div class="field">
-    <p>Category</p>
-    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true} %>
     </div>
 
-    <%= f.button :submit, class: "btn btn-success" %>
+    <div class="field">
+    <p class="label">Category</p>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true}, class: "form-control margin-bottom-2" %>
+    </div>
+
+    <div class="d-flex margin-top-5">
+        <%= f.button :submit, class: "btn btn-success sub-btn" %>
+        <%= link_to 'Cancel', user_path(current_user), class: "btn btn-danger cancel" %>
+    </div>
 <% end %>
+</div>

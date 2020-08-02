@@ -1,4 +1,6 @@
-<div class="nested-fields d-flex flex-row">
-    <%= f.input :step, class: "p-2" %>
-    <%= link_to_remove_association "remove step", f, class: "btn btn-link p-2"%>
+<div class="nested-fields">
+    <div class="d-flex">
+        <%= f.input :step, input_html: { class: 'form-control input-field' } %>
+        <%= link_to_remove_association "Remove Step", f, class: "btn btn-link"%>
+    </div>
 </div>

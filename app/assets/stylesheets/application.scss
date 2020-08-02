@@ -63,3 +63,75 @@
 .margin-top-2-up {
   margin-top: -2%;
 }
+
+.color-red {
+  color: crimson;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+abbr[title="required"] {
+  display: none;
+}
+
+.input-field {
+  width: 100%;
+}
+
+.cancel {
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.sub-btn {
+  margin-right: 5%;
+}
+
+.margin-top-5 {
+  margin-top: 5%;
+}
+
+.padding-bottom-5 {
+  padding-bottom: 5%;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.border {
+  border: 2px solid gray;
+  border-radius: 2%;
+}
+
+.centered {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.flex-dir-col {
+  flex-direction: column;
+}
+
+.margin-left-10 {
+  margin-left: 10%;
+}
+
+.hint {
+  color: gray;
+  font-weight: 300;
+}
+
+.margin-right-2 {
+  margin-right: 2%;
+}

@@ -1,5 +1,17 @@
-categories/show
+<div class="is-center">
 
-<%= @category.name %>
+<h1><%= @category.name %></h1> <%= link_to 'New Recipe', new_category_recipe_path(@category), class: "btn btn-primary" %><br>
 
-<%= link_to 'New Recipe', new_category_recipe_path(@category) %>
+<div class="d-flex space-evenly margin-top-5">
+<% @category.recipes.each do |recipe| %>
+    <div class="card" style="width: 19rem;">
+            <%= link_to image_tag(recipe.image.url(:medium), alt: "Image of Recipe"), recipe_path(recipe.id) %>
+            <div class="card-body">
+                <p class="card-text">
+                    <%= link_to recipe.title, recipe_path(recipe.id), class: 'color-red bold' %>
+                </p>
+            </div>
+        </div>
+<% end %>
+</div>
+</div>

@@ -1,8 +1,21 @@
-<h1>Index</h1>
-
-<h2> All Recipes </h2>
-<% @recipes.ordered.each do |recipe| %>
-    <h3><%= link_to recipe.title, recipe_path(recipe.id)  %></h3><br>
-    <h2>Posted by: <%= link_to "#{recipe.user.name}", user_path(recipe.user_id) %></h2>
-    <%= link_to image_tag(recipe.image.url(:medium)), recipe_path(recipe.id) %><br>
+<h1 class="is-center">WeCook</h1>
+<div class="is-center margin-bottom-2">
+<h2>Recipes from all people, all over the world.</h2>
+<% if !user_signed_in? %>
+    <p><%= link_to "Sign Up", new_user_registration_path %>  today to share your recipes too!</p>
 <% end %>
+</div>
+
+
+<div class="d-flex space-evenly">
+<% @recipes.ordered.each do |recipe| %>
+        <div class="card" style="width: 19rem;">
+            <%= link_to image_tag(recipe.image.url(:medium), alt: "Image of Recipe"), recipe_path(recipe.id) %>
+            <div class="card-body">
+                <p class="card-text">
+                    <%= link_to recipe.title, recipe_path(recipe.id), class: 'color-red bold' %>
+                </p>
+            </div>
+        </div>
+<% end %>
+</div>
