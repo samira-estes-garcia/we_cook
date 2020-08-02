@@ -15,7 +15,7 @@ Password: admin
 
 ## Installation Guide
 
-- Fork/Close this repo
+- Fork/Clone this repo
 - Navigate to the root direcotry in your terminal
 - Run `bundle Install` to install all gem dependencies
 - Run all rake migrations with `rake db:migrate`
