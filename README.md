@@ -11,7 +11,7 @@ Test it Out!
 Create your own account or use a precreated account.
 
 Email: admin@admin.com
-Password: admin
+Password: admin01
 
 ## Installation Guide
 
