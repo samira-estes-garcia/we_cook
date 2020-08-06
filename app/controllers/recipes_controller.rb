@@ -1,10 +1,12 @@
 class RecipesController < ApplicationController
-    around_action :catch_not_found
+    before_action :set_recipe, except: [:index, :new, :create]
 
     def index
         if params[:user_id]
             @user = User.find(params[:user_id])
             @recipes = @user.recipes
+        elsif params[:title]
+            @recipes = Recipe.search(params[:title])
         else
             @recipes = Recipe.all
         end
@@ -18,7 +20,7 @@ class RecipesController < ApplicationController
     end
 
     def show
-        @recipe = Recipe.find(params[:id])
+        #@recipe = Recipe.find(params[:id])
     end
 
     def create 
@@ -33,11 +35,11 @@ class RecipesController < ApplicationController
     end
 
     def edit
-        @recipe = Recipe.find(params[:id])
+        #@recipe = Recipe.find(params[:id])
     end
 
     def update
-        @recipe = Recipe.find(params[:id])
+        #@recipe = Recipe.find(params[:id])
         if @recipe.update(recipe_params)
             redirect_to @recipe
         else
@@ -46,7 +48,7 @@ class RecipesController < ApplicationController
     end
 
     def destroy
-        @recipe = Recipe.find(params[:id])
+        #@recipe = Recipe.find(params[:id])
         @recipe.destroy
         flash[:message] = "Your recipe was deleted"
         redirect_to user_path(current_user)
@@ -58,11 +60,19 @@ class RecipesController < ApplicationController
         params.require(:recipe).permit(:title, :description, :user_id, :image, :category_id, ingredients_attributes: [:id, :name, :_destroy], instructions_attributes: [:id, :step, :_destroy])
     end
 
-    def catch_not_found
-        yield
-    rescue ActiveRecord::RecordNotFound
-        redirect_to root_url 
-        flash[:error] = "Record not found." 
+    # def catch_not_found
+    #     yield
+    # rescue ActiveRecord::RecordNotFound
+    #     redirect_to root_url 
+    #     flash[:error] = "Record not found." 
+    # end
+
+    def set_recipe
+        @recipe = Recipe.find_by(id: params[:id])
+        if !@recipe 
+            redirect_to root_url
+            flash[:alert] = "Record not found." 
+        end
     end
 
 end

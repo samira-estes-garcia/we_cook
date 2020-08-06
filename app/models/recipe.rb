@@ -15,4 +15,10 @@ class Recipe < ApplicationRecord
     def self.ordered
         self.order('created_at desc')
     end
+
+    def self.search(value)
+        self.where("title LIKE ?", "%#{value}%" )
+    end
+
+    #move @recipes = Recipe.where("title LIKE ?", "%#{params[:title]}%" ) to scope method
 end

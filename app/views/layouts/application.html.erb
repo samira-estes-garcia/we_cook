@@ -28,6 +28,12 @@
           <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"text-white", style: "margin-left: 1em;" %>
         <% end %>
     </div>
+    <div>
+      <%= form_tag('/recipes', method: :get) do %>
+        <%= search_field_tag 'title' %>
+        <%= submit_tag 'Search', class: "btn btn-primary" %>
+      <% end %> 
+    </div>
   </nav>
         <% if error = notice %>
           <p class="notice alert alert-success" role="alert"><%= notice %></p>
