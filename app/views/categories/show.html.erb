@@ -1,6 +1,11 @@
 <div class="is-center">
 
-<h1><%= @category.name %></h1> <%= link_to 'New Recipe', new_category_recipe_path(@category), class: "btn btn-primary" %><br>
+<h1><%= @category.name %></h1> 
+<% if user_signed_in? %>
+    <%= link_to 'New Recipe', new_category_recipe_path(@category), class: "btn btn-primary" %><br>
+<% else %>
+    <%= link_to 'New Recipe', new_user_registration_path, class: "btn btn-primary" %><br>
+<% end %>
 
 <div class="d-flex space-evenly margin-top-5">
 <% @category.recipes.each do |recipe| %>
